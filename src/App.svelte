@@ -24,6 +24,6 @@
 
 <Container>
     <h1>{smileySays}</h1>
-    <Emoji index={2} />
+    <Emoji {happyScore} size={storyIndex+1} />
     <Buttons {buttons} on:click={clickHandler} />
 </Container>
