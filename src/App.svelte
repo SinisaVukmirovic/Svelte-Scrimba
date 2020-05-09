@@ -5,20 +5,22 @@
 	import Buttons from './Buttons.svelte';
 
 	let showHeader = false;
+
+    const buttons = [
+        {value: 0,  text: 'ummmmmm......'},
+        {value: 1,  text: 'I sure do!'},
+        {value: -2, text: 'gross!'}
+	]
+	
+    let score = 0;
 </script>
 
+
 {#if showHeader}
-	<Header />
+    <Header />
 {/if}
 
 <Container>
-	<!-- <Emoji index={0}></Emoji>
-	<Emoji></Emoji>
-	<Emoji index={2}></Emoji> -->
-
-	<Buttons on:click={(e) => {(showHeader) = e.detail}} />
+    Do you like pizza? Score: {score}
+    <Buttons {buttons} on:click={(e) => {score += e.detail.value}} />
 </Container>
-
-<style>
-
-</style>
