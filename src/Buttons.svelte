@@ -15,7 +15,7 @@
 
 {#each buttons as button}
     <button on:click={() => dispatch('click', {value: button.value})}>
-        Show
+        {button.text}
     </button>
 {/each}
 

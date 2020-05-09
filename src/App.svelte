@@ -2,25 +2,28 @@
 	import Emoji from './Emoji.svelte';
 	import Container from './Container.svelte';
 	import Header from './Header.svelte';
-	import Buttons from './Buttons.svelte';
+    import Buttons from './Buttons.svelte';
+    import story from './story';
 
 	let showHeader = false;
-
-    const buttons = [
-        {value: 0,  text: 'ummmmmm......'},
-        {value: 1,  text: 'I sure do!'},
-        {value: -2, text: 'gross!'}
-	]
 	
-    let score = 0;
-</script>
+    let happyScore = 0;
+    let storyIndex = 0;
+    $: smileySays = story[storyIndex].smileySays;
+    $: buttons = story[storyIndex].buttons;
 
+    function clickHandler(e) {
+        storyIndex +=1;
+        happyScore += e.detail.value;
+    }
+</script>
 
 {#if showHeader}
     <Header />
 {/if}
 
 <Container>
-    Do you like pizza? Score: {score}
-    <Buttons {buttons} on:click={(e) => {score += e.detail.value}} />
+    <h1>{smileySays}</h1>
+    <Emoji index={2} />
+    <Buttons {buttons} on:click={clickHandler} />
 </Container>
