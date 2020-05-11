@@ -8,7 +8,7 @@
 	}
     header {
 		position: absolute;
-		height: 100px;
+		height: 200px;
 		width: 100%;
 		color: white;
 		font-size: 5em;
